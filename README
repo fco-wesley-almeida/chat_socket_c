@@ -1,0 +1,16 @@
+1. For testing, compile application using the following command:
+
+gcc -pthread -o a main.c && ./a 8080
+
+2.After, in another terminal, type:
+
+telnet 127.0.0.1 8080
+
+3.At this point, the main application will print something like "Incoming connection from 127.0.0.1:53108 with socket_id 5". So on, open another terminal and type again:
+
+telnet 127.0.0.1 8080
+
+4.In this test, there is a server listening for tcp connections in port 8080 and there are two clients connected to this server server via tcp protocol.
+
+Now, on first client, type something like: "my_crazy_text;$socket_id_of_second_client" (Ex: "foo;5") and watch the client 
+with socket id 5 receiving the message as a chat. Now, you can play with this on second client and so on.
